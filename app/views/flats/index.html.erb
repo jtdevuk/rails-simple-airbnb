@@ -1,0 +1,23 @@
+<h1>All Flats</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <% @flats.each do |flat| %>
+      <div class="card w-25 m-3 p-0">
+        <img src="https://picsum.photos/200/150" class="card-img-top" alt="...">
+        <div class="card-body bg-light">
+          <h5 class="card-title"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.address %></p>
+        </div>
+        <div class="card-info bg-light">
+          <i class="fas fa-pound-sign p-3"> <%= flat.price_per_night %></i>
+          <i class="fas fa-user-friends"> <%= flat.number_of_guests %></i>
+        </div>
+        <div class="card-actions d-flex justify-content-center">
+          <%= link_to "More info", flat_path(flat), class: "nav-link" %>
+          <%= link_to "Edit", edit_flat_path(flat), class: "nav-link text-warning" %>
+          <%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?"}, class: "nav-link text-danger" %>
+        </div>
+      </div>
+    <% end %>  
+  </div>
+</div>
