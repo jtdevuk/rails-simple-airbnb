@@ -1,7 +1,11 @@
 <% if params["search"] %>
   <h1 class="text-center">Flats matching search term <em>"<%= params["search"] %>"</em></h1>
+    <% if @flats.empty? %>
+    <h3 class="text-center mt-5">No flats match this term</h3>
+    <%= link_to "Clear search", flats_path %>
+  <% end %>
 <% else %>
-  <h1 class="text-center">All Flats</h1>
+  <h1 class="text-center">All Flats</h1>  
 <% end %>
 
 <div class="container">
