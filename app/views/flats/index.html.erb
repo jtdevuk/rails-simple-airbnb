@@ -1,4 +1,9 @@
-<h1 class="text-center">All Flats</h1>
+<% if params["search"] %>
+  <h1 class="text-center">Flats matching search term <em>"<%= params["search"] %>"</em></h1>
+<% else %>
+  <h1 class="text-center">All Flats</h1>
+<% end %>
+
 <div class="container">
   <div class="row justify-content-center">
     <% @flats.each do |flat| %>
